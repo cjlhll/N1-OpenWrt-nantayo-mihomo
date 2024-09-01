@@ -17,9 +17,3 @@ git clone https://github.com/chenhw2/luci-app-aliddns.git package/luci-app-alidd
 # => OpenClash
 git clone --depth=1 https://github.com/vernesong/OpenClash.git package/OpenClash
 
-# => 删除默认argon主题
-rm -rf feeds/luci/themes/luci-theme-argon
-
-#主题
-git clone https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon
-sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' ./feeds/luci/collections/luci/Makefile
