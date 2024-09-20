@@ -14,7 +14,6 @@ git clone https://github.com/sbwml/luci-app-alist package/alist
 # => 阿里ddns
 git clone https://github.com/chenhw2/luci-app-aliddns.git package/luci-app-aliddns
 
-# => passwall2
-git clone https://github.com/xiaorouji/openwrt-passwall-packages.git -b main package/passwall_package
-git clone https://github.com/xiaorouji/openwrt-passwall2.git package/passwall2
+# => mihomo
+git clone https://github.com/morytyann/OpenWrt-mihomo package/mihomo
 
