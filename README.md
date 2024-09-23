@@ -4,7 +4,6 @@
 luci-app-mihomo：科学<br>
 luci-app-aliddns：aliddns<br>
 luci-app-alist：alist服务<br>
-luci-app-argon：argon皮肤<br>
 luci-app-wol：网络唤醒
 ***
 # 致谢
