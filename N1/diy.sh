@@ -17,6 +17,3 @@ git clone https://github.com/chenhw2/luci-app-aliddns.git package/luci-app-alidd
 # => mihomo
 git clone https://github.com/morytyann/OpenWrt-mihomo package/mihomo
 
-#主题
-git clone https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon
-sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' ./feeds/luci/collections/luci/Makefile
