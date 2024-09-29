@@ -1,8 +1,6 @@
 
 config dnsmasq
 	option domainneeded '1'
-	option boguspriv '1'
-	option filterwin2k '0'
 	option localise_queries '1'
 	option rebind_protection '1'
 	option rebind_localhost '1'
@@ -17,12 +15,8 @@ config dnsmasq
 	option readethers '1'
 	option leasefile '/tmp/dhcp.leases'
 	option resolvfile '/tmp/resolv.conf.d/resolv.conf.auto'
-	option nonwildcard '1'
 	option localservice '1'
-	option dns_redirect '1'
 	option ednspacket_max '1232'
-	option filter_aaaa '0'
-	option filter_a '0'
 
 config dhcp 'lan'
 	option interface 'lan'
@@ -32,6 +26,9 @@ config dhcp 'lan'
 	option dhcpv4 'server'
 	option ignore '1'
 	option dynamicdhcp '0'
+	list ra_flags 'other-config'
+	option max_preferred_lifetime '2700'
+	option max_valid_lifetime '5400'
 
 config dhcp 'wan'
 	option interface 'wan'
