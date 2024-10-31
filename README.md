@@ -1,6 +1,6 @@
 # 项目简介
 本固件适配斐讯 N1 旁路由模式，追求轻量（请注意：不具备 PPPoE、WiFi 相关功能）。<br>
-固件包含argon皮肤、完整 IPv6 支持，以及下列 luci-app：<br>
+固件包含bootstrap皮肤、完整 IPv6 支持，以及下列 luci-app：<br>
 luci-app-mihomo：科学<br>
 luci-app-aliddns：aliddns<br>
 luci-app-alist：alist服务<br>
