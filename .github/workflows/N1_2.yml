@@ -1,4 +1,4 @@
-name: Build ImmortalWrt for N1
+name: Build ImmortalWrt for N1_2
 
 on:
   workflow_dispatch:
