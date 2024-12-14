@@ -104,12 +104,11 @@ jobs:
         SFE_FLOW: 0
         ENABLE_WIFI_K510: 0
 
-    - name: Upload artifacts
+    - name: Upload firmware as Artifact
       uses: actions/upload-artifact@v3
-      if: always()
       with:
-        name: openwrt-firmware
-        path: openwrt/bin/targets/
+        name: firmware
+        path: /opt/openwrt_packit/output/*.img.xz
 
     - name: Upload firmware to release
       uses: softprops/action-gh-release@master
