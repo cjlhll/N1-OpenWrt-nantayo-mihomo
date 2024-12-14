@@ -110,7 +110,7 @@ jobs:
         path: /opt/openwrt_packit/output/*.img.xz
 
     - name: Upload firmware to release
-      uses: softprops/action-gh-release@master
+      uses: softprops/action-gh-release@v2
       if: ${{ env.PACKAGED_STATUS == 'success' }} && !cancelled()
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
