@@ -4,8 +4,7 @@
 [luci-app-mihomo](https://github.com/morytyann/OpenWrt-mihomo)：科学<br>
 luci-app-aliddns：aliddns<br>
 luci-app-alist：alist服务<br>
-luci-app-wol：网络唤醒<br>
-luci-app-ttyd：ttyd终端
+luci-app-wol：网络唤醒
 ***
 # 致谢
 本项目基于 [ImmortalWrt-23.05](https://github.com/immortalwrt/immortalwrt/tree/openwrt-23.05) 源码编译，使用 flippy 的[脚本](https://github.com/unifreq/openwrt_packit)和 breakings 维护的[内核](https://github.com/breakings/OpenWrt/releases/tag/kernel_stable)打包成完整固件，感谢开发者们的无私分享。<br>
