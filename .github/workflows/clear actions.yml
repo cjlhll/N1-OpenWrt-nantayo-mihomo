@@ -1,0 +1,42 @@
+name: Clear Old Workflow Runs
+
+on:
+  workflow_dispatch: # 手动触发清理流程
+  schedule:
+    - cron: "0 0 * * 0" # 每周日凌晨 0 点自动触发
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up environment
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          OWNER: ${{ github.repository_owner }}
+          REPO: ${{ github.event.repository.name }}
+        run: echo "Environment set up."
+
+      - name: List workflow runs
+        id: list-runs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          OWNER: ${{ github.repository_owner }}
+          REPO: ${{ github.event.repository.name }}
+        run: |
+          curl -s -H "Authorization: token $GITHUB_TOKEN" \
+            "https://api.github.com/repos/$OWNER/$REPO/actions/runs?per_page=100" \
+            | jq -r '.workflow_runs[] | select(.conclusion == "success") | .id' > runs_to_delete.txt
+          echo "Found $(wc -l < runs_to_delete.txt) workflow runs to delete."
+
+      - name: Delete workflow runs
+        if: success()
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          OWNER: ${{ github.repository_owner }}
+          REPO: ${{ github.event.repository.name }}
+        run: |
+          while read run_id; do
+            curl -s -X DELETE -H "Authorization: token $GITHUB_TOKEN" \
+              "https://api.github.com/repos/$OWNER/$REPO/actions/runs/$run_id"
+            echo "Deleted workflow run with ID $run_id."
+          done < runs_to_delete.txt
