@@ -11,7 +11,7 @@ on:
     - cron: "0 16 * * *"
 
 env:
-  REPO_URL: https://github.com/immortalwrt/immortalwrt
+  REPO_URL: https://github.com/openwrt/openwrt
   REPO_BRANCH: openwrt-23.05
   CONFIG_FILE: N1_Official/.config
   DIY_SH: N1_Official/diy.sh
