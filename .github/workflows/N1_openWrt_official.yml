@@ -1,4 +1,4 @@
-name: Build ImmortalWrt_Official for N1
+name: Build OpenWrt_Official for N1
 
 on:
   workflow_dispatch:
