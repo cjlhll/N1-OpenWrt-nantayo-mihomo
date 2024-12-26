@@ -2,8 +2,6 @@ name: Clear All Old Workflow Runs
 
 on:
   workflow_dispatch: # 手动触发清理流程
-  schedule:
-    - cron: "0 0 * * 0" # 每周日凌晨 0 点自动触发
 
 jobs:
   cleanup:
