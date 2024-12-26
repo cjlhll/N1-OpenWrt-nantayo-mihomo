@@ -1,4 +1,4 @@
-name: Clear Old Workflow Runs
+name: Clear All Old Workflow Runs
 
 on:
   workflow_dispatch: # 手动触发清理流程
@@ -16,7 +16,7 @@ jobs:
           REPO: ${{ github.event.repository.name }}
         run: echo "Environment set up."
 
-      - name: List workflow runs
+      - name: List all workflow runs to delete
         id: list-runs
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -25,7 +25,7 @@ jobs:
         run: |
           curl -s -H "Authorization: token $GITHUB_TOKEN" \
             "https://api.github.com/repos/$OWNER/$REPO/actions/runs?per_page=100" \
-            | jq -r '.workflow_runs[] | select(.conclusion == "success") | .id' > runs_to_delete.txt
+            | jq -r '.workflow_runs[] | select(.status != "in_progress") | .id' > runs_to_delete.txt
           echo "Found $(wc -l < runs_to_delete.txt) workflow runs to delete."
 
       - name: Delete workflow runs
