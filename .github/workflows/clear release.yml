@@ -1,0 +1,34 @@
+name: Clear GitHub Releases
+
+on:
+  workflow_dispatch: # 手动触发
+
+jobs:
+  clear-releases:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up GitHub CLI
+      uses: actions/setup-gh@v3
+
+    - name: List and delete releases
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        # 获取所有 release 列表
+        releases=$(gh release list --limit 100 | awk '{print $1}')
+        
+        for release in $releases; do
+          echo "Deleting release: $release"
+          gh release delete "$release" --yes
+        done
+        
+        # 删除对应的 tags
+        tags=$(git tag)
+        for tag in $tags; do
+          echo "Deleting tag: $tag"
+          git push --delete origin "$tag"
+          git tag -d "$tag"
+        done
