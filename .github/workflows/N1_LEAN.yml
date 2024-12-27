@@ -2,8 +2,8 @@ name: Build OpenWRT-LEAN for N1
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "0 16 * * *"
+  # schedule:
+  #   - cron: "0 16 * * *"
 
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
@@ -182,5 +182,5 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        keep_latest: 10
+        keep_latest: 2
         delete_tags : true
