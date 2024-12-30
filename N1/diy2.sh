@@ -10,6 +10,7 @@ sed -i 's/^root:.*:/root:$1$KVHNuqbv$4X2BPbtsXn2AApknHIn38.:0:0:99999:7:::/g' pa
 rm -rf feeds/packages/lang/golang
 rm -rf feeds/packages/net/alist
 git clone https://github.com/sbwml/packages_lang_golang -b 22.x feeds/packages/lang/golang
+#git clone https://github.com/AlistGo/alist package/alist
 git clone https://github.com/sbwml/luci-app-alist package/luci-app-alist
 
 # 添加阿里云 DDNS
@@ -24,16 +25,10 @@ mkdir -p files/etc/rustdesk
 # 下载 RustDesk 服务器文件
 wget -O rustdesk-server-linux-arm64v8.zip https://github.com/rustdesk/rustdesk-server/releases/latest/download/rustdesk-server-linux-arm64v8.zip
 
-# 解压到临时目录
-unzip rustdesk-server-linux-arm64v8.zip -d /tmp/rustdesk
-
-# 移动子目录中的文件到指定目录
-mv /tmp/rustdesk/arm64v8/hbbs /etc/rustdesk/hbbs
-mv /tmp/rustdesk/arm64v8/hbbr /etc/rustdesk/hbbr
-
-# 添加执行权限
-chmod +x /etc/rustdesk/hbbs
-chmod +x /etc/rustdesk/hbbr
+# 解压并移动到指定目录
+unzip rustdesk-server-linux-arm64v8.zip -d files/etc/rustdesk/
+chmod +x files/etc/rustdesk/hbbs
+chmod +x files/etc/rustdesk/hbbr
 
 # 配置系统启动脚本
 cat >> files/etc/rc.local <<EOF
