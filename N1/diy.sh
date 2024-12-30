@@ -8,9 +8,9 @@ sed -i 's/^root:.*:/root:$1$KVHNuqbv$4X2BPbtsXn2AApknHIn38.:0:0:99999:7:::/g' pa
 
 # => alist
 rm -rf feeds/packages/lang/golang
-rm -rf feeds/packages/net/alist
+#rm -rf feeds/packages/net/alist
 git clone https://github.com/sbwml/packages_lang_golang -b 22.x feeds/packages/lang/golang
-git clone https://github.com/sbwml/luci-app-alist/tree/main/alist feeds/packages/net/alist
+#git clone https://github.com/sbwml/luci-app-alist/tree/main/alist feeds/packages/net/alist
 git clone https://github.com/sbwml/luci-app-alist package/luci-app-alist
 
 # => 阿里ddns
