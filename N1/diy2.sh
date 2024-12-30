@@ -25,8 +25,14 @@ mkdir -p files/etc/rustdesk
 # 下载 RustDesk 服务器文件
 wget -O rustdesk-server-linux-arm64v8.zip https://github.com/rustdesk/rustdesk-server/releases/latest/download/rustdesk-server-linux-arm64v8.zip
 
-# 解压并移动到指定目录
-unzip rustdesk-server-linux-arm64v8.zip -d files/etc/rustdesk/
+# 解压到临时目录
+unzip rustdesk-server-linux-arm64v8.zip -d /tmp/rustdesk
+
+# 移动子目录中的文件到指定目录
+mv /tmp/rustdesk/arm64v8/hbbs files/etc/rustdesk/hbbs
+mv /tmp/rustdesk/arm64v8/hbbr files/etc/rustdesk/hbbr
+
+# 添加执行权限
 chmod +x files/etc/rustdesk/hbbs
 chmod +x files/etc/rustdesk/hbbr
 
