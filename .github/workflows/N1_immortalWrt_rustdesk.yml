@@ -1,4 +1,4 @@
-name: Build ImmortalWrt for N1
+name: Build ImmortalWrt Rustdesk for N1
 
 on:
   workflow_dispatch:
